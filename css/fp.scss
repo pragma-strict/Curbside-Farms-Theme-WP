@@ -1,0 +1,160 @@
+
+
+/* ================================
+		Front Page-Specific CSS
+================================ */
+
+#fp-master-container{
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+
+#fp-image-container{
+	position: relative;
+	overflow: hidden;
+	margin: 0rem 2rem;
+	transition: height 1s;
+	.fp-image-transition-wrapper{
+		transition: left 1s;
+		position: absolute;
+	}
+	.fp-image-single{
+		position: absolute;
+		left: 0px;
+		transition: opacity 0.5s;
+	}
+}
+
+#fp-text-container{
+	position: relative;
+	margin: 2rem;
+	//transition: height 2s;
+	z-index: 1;
+	.fp-content-single{
+		position: absolute;
+		//bottom: 0;
+		font-size: 1em;
+		width: 100%;
+		color: #222222;
+		transition: opacity 0.5s;
+	}
+}
+
+.divider span{
+	height: 3px;
+	width: 0%;
+	background-color: chartreuse;
+	display: block;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display:flex;
+}
+
+// This ID only gets applied to the nav menu if it's on the front page.
+#fp-nav-menu-bar{	
+	margin: 2rem 2rem 0rem 2rem;
+	min-height: 2rem;
+	h1{
+		display: inline-flex;
+	}
+}
+
+/* Above 600px make the margins a bit bigger */
+@media screen and (min-width: 600px) {
+	#fp-nav-menu-bar{	
+		margin: 4rem 4rem 0rem 4rem;
+	}
+	#fp-image-container{
+		margin: 0rem 4rem;
+	}
+	#fp-text-container{
+		margin: 4rem;
+	}
+}
+
+/* Above 1200px make the margins a bit bigger */
+@media screen and (min-width: 1200px) {
+	#fp-nav-menu-bar{	
+		margin: 4rem 6rem 0rem 6rem;
+		h1{
+			font-size: 2em;
+		}
+	}
+	#fp-image-container{
+		margin: 0rem 6rem;
+	}
+	#fp-text-container{
+		margin: 4rem 6rem 4rem 6rem;
+		p{
+			font-size: larger;
+		}
+		h1{
+			font-size: 2em;
+		}
+		.divider{
+			height: 6px;
+			span{
+				height: 6px;
+			}
+		}
+	}
+}
+
+
+
+
+/* ================================
+		CHANGING A SCSS VAR WITH MEDIA QUERIES. I don't think this is in use atm
+================================ */
+
+$padding: 1rem;
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	#fp-master-container{
+		$padding: 1rem;
+	}
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	#fp-master-container{
+		$padding: 2rem;
+	}
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	#fp-master-container{
+		$padding: 3rem;
+	}
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	#fp-master-container{
+		$padding: 4rem;
+	}
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	#fp-master-container{
+		$padding: 5rem;
+	}
+}
+
+
+/* SUPER Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1500px) {
+	#fp-master-container{
+		$padding: 6rem;
+	}
+}

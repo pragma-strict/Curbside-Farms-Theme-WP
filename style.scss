@@ -1,0 +1,278 @@
+/*
+Theme Name: Curbside Farms Theme
+Theme URI: https://gitlab.com/ianrdejong/curbside-website
+Author: Ian DeJong
+Author URI: https://github.com/pragma-strict
+Description: Basic theme for Curbside Farms
+Version: 0.1
+*/
+
+$xs: 0px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@media (min-width: $xs) {
+	.grid-container-centerpiece{
+		grid-template-columns: auto 80vw auto;
+	}
+	.grid-item-centerpiece{
+		padding: 2rem;
+	}
+}
+
+@media (min-width: $sm) {
+	.grid-container-centerpiece{
+		grid-template-columns: auto 20rem auto;
+	}
+}
+
+@media (min-width: $md) {
+	.grid-container-centerpiece{
+		grid-template-columns: auto 25rem auto;	
+	}
+}
+
+@media (min-width: $xl) {
+	.grid-container-centerpiece{
+		grid-template-columns: auto 30rem auto;
+	}
+}
+
+/* ================================
+			Sass Variables
+================================ */
+$gradient-upper: rgba(255, 249, 220, 0.164);
+$gradient-lower: rgba(7, 30, 61, 0.658);
+
+
+
+/* ================================
+			Site-Wide CSS
+================================ */
+
+.grid-container-centerpiece{
+	display: grid;
+	min-height: 80vh;
+	grid-template-rows: auto auto auto;
+	background-image: linear-gradient(
+	to bottom, 
+	$gradient-upper, 
+	$gradient-lower),
+	url("img/beds-summer.JPG");
+	background-size: 100vw auto;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.grid-item-centerpiece{
+	margin: auto;
+	h1{ color: #221818; }
+	background-image: linear-gradient(to top right, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0.6));
+	border-radius: 7px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ddd;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+}
+
+.bg{
+	background-color: rgba(255, 0, 0, 0.1);
+}
+
+.center{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+a{
+	color: #000000;
+}
+a:hover{
+	color: #000000;
+}
+
+footer{
+	width: 100%;
+	text-align: center;
+	ul{
+		li{
+			padding: 1rem;
+			a{
+				display: block;
+				white-space: nowrap;
+				color: black;
+				padding: 8px 10px 8px 10px;
+			}
+			a:hover{
+				background-color: rgba(0, 0, 0, 0.1);
+				text-decoration: none;
+			}
+		}
+		display: inline-flex;
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+
+.header-footer{
+	background-color: #ffffff;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar{
+	display: block;
+}
+
+.padding{
+	padding: 3rem;
+}
+@media screen and (max-width: 600px) { .padding{ padding: 1rem; } }
+
+
+.cs-margin-basic{
+	margin: 2rem;
+}
+
+form{
+	max-width: 500px;
+	input, select{
+		float: right;
+	}
+	input[type="submit"]{
+		float: none;
+	}
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+ }
+ 
+ /* Style the buttons that are used to open the tab content */
+ .tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+ }
+ 
+ /* Change background color of buttons on hover */
+ .tab button:hover {
+	background-color: #ddd;
+ }
+ 
+ /* Create an active/current tablink class */
+ .tab button.active {
+	background-color: #ccc;
+ }
+ 
+ /* Style the tab content */
+ .tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+ }
+
+h1{
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #393939;
+}
+
+.divider{
+	height: 3px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: inherit;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.new-button{
+	border-radius: 5px;
+	color: black;
+	padding: 2px 10px;
+	background-color: whitesmoke;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: #c9c9c9;
+	border-width: thin;
+}
+
+.new-button:hover{
+	background-color: #cccccc;
+	text-decoration: none;
+	color: black;
+}
+
+.right{
+	float: right;
+}
+
+.cs-progress-bar{
+	width: 100%;
+	height: 1em;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	border-radius: 4px;
+	border-style: solid;
+	border-color: #c9c9c9;
+	border-width: thin;
+
+	.cs-progress-bar-fill{
+		height: 2em;
+		margin: 0;
+		padding: 0;
+		display: inline-flex;
+		border-right-style: solid;
+		border-color: rgba(0, 0, 0, 0.05);
+		border-width: thin;
+	}
+}
+
+
+
+
+
+
+/* ================================
+	Community Page-Specific CSS
+================================ */
+
+.community-list-item{
+	min-height: 100px;
+	box-shadow: 1px 1px 5px #c9c9c9;
+	padding: 1rem;
+	margin: 0.5rem;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: whitesmoke;
+	border-width: thin;
+	
+	a{
+		color: black;
+		display: block;
+	}
+}
+
+.community-list-item:hover{
+	box-shadow: 1px 1px 5px #6e6e6e;
+	a{
+		color: #888888;
+	}
+}
+
+
+
+

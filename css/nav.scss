@@ -1,0 +1,76 @@
+/* ================================
+			Nav Menu CSS
+================================ */
+
+#nav-menu-bar{
+	padding-bottom: 2rem;
+	h1{
+		display: inline-flex;
+	}
+}
+
+.nav-dropdown-container{
+	float: right;
+	position: relative;
+}
+
+.nav-dropdown-btn{
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+.hamburger-icon-layer{
+	width: 20px;
+	height: 3px;
+	background-color: #393939;
+	margin: 4px;
+}
+
+.nav-dropdown-content{
+	display: none;
+	position: absolute;
+	right: 0;
+	z-index: 1;
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+	background-color: white;
+	a{
+		display: block;
+		white-space: nowrap;
+		color: black;
+		padding: 8px 10px 8px 10px;
+	}
+	a:hover{
+		background-color: rgba(0, 0, 0, 0.1);
+		text-decoration: none;
+	}
+}
+
+.nav-dropdown-container:hover .nav-dropdown-content{
+	display: block;
+}
+
+.nav-dropdown-container:hover .nav-dropdown-btn{
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Above 600px display the nav menu always */
+@media screen and (min-width: 800px) {
+	.nav-dropdown-content{
+		background-color: transparent;
+		position: relative;
+		display: inline-flex;
+		box-shadow: none;
+		a{
+			padding: 4px 10px 4px 10px;
+		}
+	}
+	.nav-dropdown-container:hover .nav-dropdown-content{
+		display: inline-flex;
+	}
+	.nav-dropdown-btn {
+		display: none;
+	}
+}

@@ -1,0 +1,292 @@
+/*
+Theme Name: Curbside Farms Theme
+Theme URI: https://gitlab.com/ianrdejong/curbside-website
+Author: Ian DeJong
+Author URI: https://github.com/pragma-strict
+Description: Basic theme for Curbside Farms
+Version: 0.1
+*/
+@media (min-width: 0px) {
+  .grid-container-centerpiece {
+    -ms-grid-columns: auto 80vw auto;
+        grid-template-columns: auto 80vw auto;
+  }
+  .grid-item-centerpiece {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .grid-container-centerpiece {
+    -ms-grid-columns: auto 20rem auto;
+        grid-template-columns: auto 20rem auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-container-centerpiece {
+    -ms-grid-columns: auto 25rem auto;
+        grid-template-columns: auto 25rem auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-container-centerpiece {
+    -ms-grid-columns: auto 30rem auto;
+        grid-template-columns: auto 30rem auto;
+  }
+}
+
+/* ================================
+			Sass Variables
+================================ */
+/* ================================
+			Site-Wide CSS
+================================ */
+.grid-container-centerpiece {
+  display: -ms-grid;
+  display: grid;
+  min-height: 80vh;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 249, 220, 0.164)), to(rgba(7, 30, 61, 0.658))), url("img/beds-summer.JPG");
+  background-image: linear-gradient(to bottom, rgba(255, 249, 220, 0.164), rgba(7, 30, 61, 0.658)), url("img/beds-summer.JPG");
+  background-size: 100vw auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.grid-item-centerpiece {
+  margin: auto;
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(40%, white), to(rgba(255, 255, 255, 0.6)));
+  background-image: linear-gradient(to top right, white 40%, rgba(255, 255, 255, 0.6));
+  border-radius: 7px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+}
+
+.grid-item-centerpiece h1 {
+  color: #221818;
+}
+
+.bg {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+a {
+  color: #000000;
+}
+
+a:hover {
+  color: #000000;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+}
+
+footer ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer ul li {
+  padding: 1rem;
+}
+
+footer ul li a {
+  display: block;
+  white-space: nowrap;
+  color: black;
+  padding: 8px 10px 8px 10px;
+}
+
+footer ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.header-footer {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: block;
+}
+
+.padding {
+  padding: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+  .padding {
+    padding: 1rem;
+  }
+}
+
+.cs-margin-basic {
+  margin: 2rem;
+}
+
+form {
+  max-width: 500px;
+}
+
+form input, form select {
+  float: right;
+}
+
+form input[type="submit"] {
+  float: none;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #393939;
+}
+
+.divider {
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: inherit;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.new-button {
+  border-radius: 5px;
+  color: black;
+  padding: 2px 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #c9c9c9;
+  border-width: thin;
+}
+
+.new-button:hover {
+  background-color: #cccccc;
+  text-decoration: none;
+  color: black;
+}
+
+.right {
+  float: right;
+}
+
+.cs-progress-bar {
+  width: 100%;
+  height: 1em;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: #c9c9c9;
+  border-width: thin;
+}
+
+.cs-progress-bar .cs-progress-bar-fill {
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-right-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: thin;
+}
+
+/* ================================
+	Community Page-Specific CSS
+================================ */
+.community-list-item {
+  min-height: 100px;
+  -webkit-box-shadow: 1px 1px 5px #c9c9c9;
+          box-shadow: 1px 1px 5px #c9c9c9;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: thin;
+}
+
+.community-list-item a {
+  color: black;
+  display: block;
+}
+
+.community-list-item:hover {
+  -webkit-box-shadow: 1px 1px 5px #6e6e6e;
+          box-shadow: 1px 1px 5px #6e6e6e;
+}
+
+.community-list-item:hover a {
+  color: #888888;
+}
+/*# sourceMappingURL=style.css.map */

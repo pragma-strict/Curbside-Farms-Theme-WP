@@ -1,0 +1,121 @@
+/* ================================
+		Front Page-Specific CSS
+================================ */
+#fp-master-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#fp-image-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0rem 2rem;
+  -webkit-transition: height 1s;
+  transition: height 1s;
+}
+
+#fp-image-container .fp-image-transition-wrapper {
+  -webkit-transition: left 1s;
+  transition: left 1s;
+  position: absolute;
+}
+
+#fp-image-container .fp-image-single {
+  position: absolute;
+  left: 0px;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+#fp-text-container {
+  position: relative;
+  margin: 2rem;
+  z-index: 1;
+}
+
+#fp-text-container .fp-content-single {
+  position: absolute;
+  font-size: 1em;
+  width: 100%;
+  color: #222222;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.divider span {
+  height: 3px;
+  width: 0%;
+  background-color: chartreuse;
+  display: block;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#fp-nav-menu-bar {
+  margin: 2rem 2rem 0rem 2rem;
+  min-height: 2rem;
+}
+
+#fp-nav-menu-bar h1 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+/* Above 600px make the margins a bit bigger */
+@media screen and (min-width: 600px) {
+  #fp-nav-menu-bar {
+    margin: 4rem 4rem 0rem 4rem;
+  }
+  #fp-image-container {
+    margin: 0rem 4rem;
+  }
+  #fp-text-container {
+    margin: 4rem;
+  }
+}
+
+/* Above 1200px make the margins a bit bigger */
+@media screen and (min-width: 1200px) {
+  #fp-nav-menu-bar {
+    margin: 4rem 6rem 0rem 6rem;
+  }
+  #fp-nav-menu-bar h1 {
+    font-size: 2em;
+  }
+  #fp-image-container {
+    margin: 0rem 6rem;
+  }
+  #fp-text-container {
+    margin: 4rem 6rem 4rem 6rem;
+  }
+  #fp-text-container p {
+    font-size: larger;
+  }
+  #fp-text-container h1 {
+    font-size: 2em;
+  }
+  #fp-text-container .divider {
+    height: 6px;
+  }
+  #fp-text-container .divider span {
+    height: 6px;
+  }
+}
+
+/* ================================
+		CHANGING A SCSS VAR WITH MEDIA QUERIES. I don't think this is in use atm
+================================ */
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* SUPER Extra large devices (large laptops and desktops, 1200px and up) */
+/*# sourceMappingURL=fp.css.map */

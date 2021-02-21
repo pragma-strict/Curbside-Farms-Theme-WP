@@ -1,0 +1,365 @@
+
+/**
+ * This file contains all logic relating to the actual content of the front page.
+ * This includes text sizes, content div sizes, positioning, etc. 
+ * It also contains the logic for the progress bar/divider thingy. 
+ */
+
+/**
+ * Note: This file includes an implementation of "volumetric breakpoints". They are self-
+ * explanatory enough I think, though I may have been a little over creative in using them. 
+ */
+
+
+// Some div ID/class names
+const CONTENT_DIV_ID_BASE = "fp-content";
+const PROGRESS_BAR_CLASS_NAME = "divider";
+
+// Array containing the div IDs for each section of text
+let contentDivIDs = new Array();
+
+// The max & min heights of the content div relative to the screen height.
+const MAX_CONTENT_HEIGHT_RATIO = 0.65;
+const MIN_CONTENT_HEIGHT_RATIO = 0.45;
+
+// Fixed padding amounts (px) at each breakpoint
+const paddingAmounts = [
+   5,
+   15,
+   30,
+   50,
+   80,
+   110
+];
+
+// Max volumes (px) for each breakpoint
+const BREAKPOINT_MAX_VOLUMES = [
+   180000,  // Breakpoint 0 max
+   280000,  // Breakpoint 1 max
+   460000,
+   1000000,
+   1400000
+];
+
+
+/*
+   Some basic init stuff
+*/
+function contentInit(numberOfSections){
+   // Set the content div element IDs
+   for(var i = 0; i < numberOfSections; i++){
+      contentDivIDs.push(CONTENT_DIV_ID_BASE + '-' + (i + 1));
+   }
+
+   // Set which content div is visible to start
+   setCurrentContent(0, 0);
+}
+
+
+/*
+   Sets the visible content according to the current section index
+*/
+function setCurrentContent(currentSectionIndex, prevSectionIndex){
+   document.getElementById(contentDivIDs[prevSectionIndex]).style.opacity = "0";
+   document.getElementById(contentDivIDs[currentSectionIndex]).style.opacity = "1";
+}
+
+
+/* 
+   Master function responsible for all sizing and positioning of the fp content 
+*/
+function updateContentLayout(){
+
+   // 1. Apply padding to all the text divs
+   for(var i = 0; i < contentDivIDs.length; i++){
+      applyPadding(contentDivIDs[i]);
+   }
+
+   // 2. Find the tallest text div
+   var tallestTextDiv = calculateTallestContentDiv(contentDivIDs);
+
+   // 3. Use tallest div to determine font size and margin-top for the rest of the divs
+   const FONT_SIZE = calculateTargetFontSize(contentDivIDs[tallestTextDiv]);
+   const MARGIN_TOP = calculateMarginTop(contentDivIDs[tallestTextDiv]);
+
+   // 4. Set margin top on all divs (positions them vertically)
+   for(var i = 0; i < contentDivIDs.length; i++){
+      document.getElementById(contentDivIDs[i]).style.marginTop = MARGIN_TOP + "px";
+   }
+
+   // 5. If font size requires update then apply it to all remaining divs
+   if(FONT_SIZE != false){
+      for(var i = 0; i < contentDivIDs.length; i++){
+         if(i != tallestTextDiv){
+            setFontSize(FONT_SIZE, contentDivIDs[i]);
+         }
+      }
+   }
+
+   // 6. Fit the padding to the bottom of the screen
+   for(var i = 0; i < contentDivIDs.length; i++){
+      fitPaddingBottom(contentDivIDs[i])
+   }
+}
+
+
+/*
+   It's important to position the text based on the largest text section so that all of the sections
+   can be positioned the same and none of them will go off the edge. 
+*/
+function calculateTallestContentDiv(contentDivIDs){
+   var tallestDivHeight = 0;
+   var tallestDiv = 0;
+   for(var i = 0; i < contentDivIDs.length; i++){
+      var tempHeight = parseInt(window.getComputedStyle(document.getElementById(contentDivIDs[i]), null).getPropertyValue("height").slice(0, -2));
+
+      if(tempHeight > tallestDivHeight){
+         tallestDivHeight = tempHeight;
+         tallestDiv = i;
+      }
+   }
+   return tallestDiv;
+}
+
+
+/*
+   Make sure the given div is not too tall relative to viewport and shrink font size if it is.
+   @return desired font size if update was required or false if original size is OK.
+*/
+function calculateTargetFontSize(divID){
+   // Check whether div is too tall or too short
+   var divHeightError = calculateDivHeightError(divID);
+
+   // Return false if div is already a good height
+   if(divHeightError == 0){
+      return false;  
+   }
+
+   // If size needs update, start by getting the current font size
+   var targetFontSize = parseInt(window.getComputedStyle(document.getElementById(divID).children[2], null).getPropertyValue("font-size").slice(0, -2));
+
+   // Increase or decrease size depending on error
+   if(divHeightError > 0){
+      targetFontSize = decreaseFontSize(targetFontSize, divID);
+   }
+   if(divHeightError < 0){
+      targetFontSize = increaseFontSize(targetFontSize, divID);
+   }
+
+   return targetFontSize;
+}
+
+
+/*
+   Iteratively increase font size until its div enters permissible range.
+   @param fontSize the original font size
+   @return desired font size
+*/
+function increaseFontSize(fontSize, divID){
+   const ADJUSTMENT_STEP_SIZE = 1;
+   const MAX_ITERATIONS = 25;
+   var iteration = 0;
+
+   while(iteration < MAX_ITERATIONS){
+      // Decrease font size
+      fontSize += ADJUSTMENT_STEP_SIZE;
+
+      // Update the CSS
+      setFontSize(fontSize, divID);
+
+      // Check whether the adjustment fixed the problem & end loop if yes
+      var newError = calculateDivHeightError(divID); 
+      if(newError == 0){
+         return fontSize;
+      }
+      if(newError > 0){
+         return fontSize - ADJUSTMENT_STEP_SIZE;
+      }
+
+      // Update loop counter
+      iteration++;
+   }
+
+   // Print error if max iterations reached
+   if(iteration >= MAX_ITERATIONS){
+      console.log("ERR - increaseFontSize(): Unable to find target size");
+   }
+
+   return fontSize;
+}
+
+
+/*
+   Iteratively decrease font size until its div enters permissible range.
+   @param fontSize the original font size
+   @return desired font size
+*/
+function decreaseFontSize(fontSize, divID){
+   const ADJUSTMENT_STEP_SIZE = 1;
+   const MAX_ITERATIONS = 25;
+   var iteration = 0;
+
+   while(iteration < MAX_ITERATIONS){
+      // Decrease font size
+      fontSize -= ADJUSTMENT_STEP_SIZE;
+
+      // Update the CSS
+      setFontSize(fontSize, divID);
+
+      // Check whether the adjustment fixed the problem & end loop if yes
+      if(calculateDivHeightError(divID) <= 0){
+         return fontSize;
+      }
+
+      // Update loop counter
+      iteration++;
+   }
+
+   // Print error if max iterations reached
+   if(iteration >= MAX_ITERATIONS){
+      console.log("ERR - decreaseFontSize(): Unable to find target size");
+   }
+
+   return fontSize;
+}
+
+
+/*
+   Set the font size of one of our content divs
+*/
+function setFontSize(newSize, divID){
+   document.getElementById(divID).style.fontSize = newSize + "px";
+}
+
+
+/*
+   @return positive if div is too tall
+   @return negative if div is too short
+   @return 0 if height is permissible
+*/
+function calculateDivHeightError(divID){
+   var divHeight = document.getElementById(divID).offsetHeight;
+   var maxHeight = window.innerHeight * MAX_CONTENT_HEIGHT_RATIO;
+   var minHeight = window.innerHeight * MIN_CONTENT_HEIGHT_RATIO;
+
+   if(divHeight > maxHeight){
+      return 1;   // Too large
+   }
+   if(divHeight < minHeight){
+      return -1;  // Too small
+   }
+   return 0;   // Within permissible range
+}
+
+
+/*
+   Calculate the top margin required to position the div at the bottom of the screen
+*/
+function calculateMarginTop(divID){
+   // Get the div height
+   var divStyle = window.getComputedStyle(document.getElementById(divID), null);
+   var divHeight = parseInt(divStyle.getPropertyValue("height").slice(0, -2));
+   
+   // Return 0 if the div is actually taller than the window for some reason
+   if(divHeight >= window.innerHeight){
+      return 0;
+   }
+
+   return window.innerHeight - divHeight;
+}
+
+
+/*
+   Adjust the padding bottom so that it extends all the way to the bottom of the screen
+*/
+function fitPaddingBottom(divID){
+   // Get the div height including margin top
+   var divStyle = window.getComputedStyle(document.getElementById(divID), null);
+   var divHeight = parseInt(divStyle.getPropertyValue("height").slice(0, -2));
+   var divMarginTop = parseInt(divStyle.getPropertyValue("margin-top").slice(0, -2));
+   var divOriginalPaddingBottom = parseInt(divStyle.getPropertyValue("padding-bottom").slice(0, -2));
+   var extraPaddingNeeded = window.innerHeight - divHeight - divMarginTop;
+   var newPaddingBottom = divOriginalPaddingBottom + extraPaddingNeeded;
+
+   // Apply new padding
+   document.getElementById(divID).style.paddingBottom = newPaddingBottom + "px";
+}
+
+
+/* 
+   Update the padding based on the volumetric breakpoint
+*/
+function applyPadding(contentDivID){
+   var breakpoint = calculateBreakpoint();
+
+   if(breakpoint >= 0 && breakpoint < paddingAmounts.length){
+      var paddingAmount = paddingAmounts[breakpoint];
+      document.getElementById(contentDivID).style.padding = paddingAmount + "px";
+   }
+   else{
+      console.log("ERR: updatePadding() - breakpoint out of bounds");
+   }
+}
+
+
+/* 
+   Calculate and return the current volumetric breakpoint
+*/
+function calculateBreakpoint()
+{
+   var volume = calculateViewportVolume();
+   var foundBreakpoint = false;
+   var breakpoint;
+
+   // We are in the first breakpoint to exceed our volume
+   for(var i = 0; i < BREAKPOINT_MAX_VOLUMES.length; i++){
+      if(!foundBreakpoint && volume < BREAKPOINT_MAX_VOLUMES[i]){
+         breakpoint = i;
+         foundBreakpoint = true;  // End the loop immediately when we find a match
+      }
+   }
+
+   // Handle the largest case outside the loop
+   if(!foundBreakpoint){
+      breakpoint = BREAKPOINT_MAX_VOLUMES.length;
+   }
+
+   return breakpoint;
+}
+
+
+/*
+   See function name
+*/
+function calculateViewportVolume()
+{
+   return window.innerWidth * window.innerHeight;
+}
+
+
+/*
+   Update the progress bar in the divider class
+*/
+function updateProgressBar(scrollPercent){
+   for(var i = 0; i < contentDivIDs.length; i++){
+      var dividerElement = document.getElementById(contentDivIDs[i]).querySelector("." + PROGRESS_BAR_CLASS_NAME);
+      var spanElement = dividerElement.querySelector("span");
+      var spanWidth = scrollPercent;
+      if(spanWidth > 100){
+         spanWidth = 100;
+      }
+      else if(spanWidth < 0){
+         spanWidth = 0;
+      }
+      spanElement.style.width = spanWidth + "%";
+   }
+}
+
+
+// EXPORT FUNCTIONS
+export {  
+   updateContentLayout,
+   setCurrentContent,
+   updateProgressBar,
+   contentInit
+};
