@@ -153,18 +153,6 @@ footer ul li a:hover {
   margin: 2rem;
 }
 
-form {
-  max-width: 500px;
-}
-
-form input, form select {
-  float: right;
-}
-
-form input[type="submit"] {
-  float: none;
-}
-
 /* Style the tab */
 .tab {
   overflow: hidden;
