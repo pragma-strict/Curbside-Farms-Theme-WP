@@ -50,13 +50,6 @@
   display: block;
 }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 #fp-nav-menu-bar {
   margin: 2rem 2rem 0rem 2rem;
   min-height: 2rem;

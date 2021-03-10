@@ -39,6 +39,7 @@
   -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   background-color: white;
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 }
 
 .nav-dropdown-content a {
@@ -51,6 +52,12 @@
 .nav-dropdown-content a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: none;
+}
+
+.nav-dropdown-content.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .nav-dropdown-container:hover .nav-dropdown-content {
