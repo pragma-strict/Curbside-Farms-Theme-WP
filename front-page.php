@@ -11,5 +11,6 @@
 </div>
 
 <script src="wp-content/themes/Curbsite/js/image-fill.js" type="module"></script>
+<script src="wp-content/themes/Curbsite/js/nav.js" type="module"></script>
 
 <?php get_footer(); ?>

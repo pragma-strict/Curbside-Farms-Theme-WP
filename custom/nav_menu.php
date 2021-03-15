@@ -1,6 +1,6 @@
 <?php function insert_nav_menu(){ ?>
 
-   <div id="nav-menu-bar" class="fp-section header-footer padding">
+   <div id="nav-menu-bar" class="fp-section nav-primary padding">
       <div class="container">
          <a href="<?php echo home_url(); ?>">
             <h1>CURBSIDE FARMS</h1>

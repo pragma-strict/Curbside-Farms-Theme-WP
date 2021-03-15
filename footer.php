@@ -1,5 +1,5 @@
 <footer>
-   <div class="header-footer">
+   <div class="nav-primary footer">
       <div class="container">
          <?php 
             if(is_user_logged_in( ))
@@ -40,7 +40,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>-->
 
-<?php wp_footer(); // This footer just adds a bunch of junk scripts as far as I can tell ?>
+<?php wp_footer(); // This footer just adds a bunch of scripts as far as I can tell ?>
 
 </body>
 </html>
