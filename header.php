@@ -1,5 +1,3 @@
-<?php require __DIR__ . '/custom/nav_menu.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -23,7 +21,11 @@
 <body>
 
 <!-- We may want to only call this per page. I think we should. -->
-<?php insert_nav_menu();	// defined in 'nav_menu.php' ?>
+<?php 
+	ob_start(); 
+	require_once( get_theme_root() . "/curbside-farms/custom/nav_menu.php" );
+	ob_end_flush();	
+?>
 	
 
 
