@@ -11,9 +11,7 @@
             <div class="hamburger-icon-layer"></div>
          </button>
          <div class="nav-dropdown-content" id="nav-dropdown-content-ID">
-            <a href="<?php echo home_url() . "/bootstrap-test-page"; ?>">TEST</a>
-            <a href="<?php echo home_url() . "/community"; ?>">COMMUNITY</a>
-            <a href="<?php echo home_url() . "/my-profile"; ?>">MY PAGE</a>
+            <a href="<?php echo home_url() . "/vision"; ?>">Our Vision</a>
          </div>
       </div>
    </div>

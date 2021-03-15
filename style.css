@@ -139,6 +139,16 @@ footer ul li a:hover {
   }
 }
 
+.padding-light {
+  padding: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .padding {
+    padding: 0.5rem;
+  }
+}
+
 .cs-margin-basic {
   margin: 2rem;
 }

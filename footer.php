@@ -1,30 +1,9 @@
 <footer>
-   <div class="nav-primary footer">
-      <div class="container">
-         <?php 
-            if(is_user_logged_in( ))
-            {
-               wp_nav_menu(
-                  array(
-                     'menu' => 'Footer Logged In',
-                     'menu_class' => 'nav__links__footer',
-                     'container_class' => 'navbar'
-                     )
-                  );
-            }
-            else
-            {
-               wp_nav_menu(
-                  array(
-                     'menu' => 'Footer',
-                     'menu_class' => 'nav__links__footer',
-                     'container_class' => 'navbar'
-                     )
-                  );
-            }
-         ?>
-      </div>
-   </div>
+<?php 
+   ob_start(); 
+   require_once( get_theme_root() . "/curbside-farms/custom/footer_menu.php" );
+   echo ob_get_clean();	
+?>
 </footer>
 
 

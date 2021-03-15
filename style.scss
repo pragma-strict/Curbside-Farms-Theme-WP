@@ -122,6 +122,11 @@ footer{
 }
 @media screen and (max-width: 600px) { .padding{ padding: 1rem; } }
 
+.padding-light{
+	padding: 1.5rem;
+}
+@media screen and (max-width: 600px) { .padding{ padding: 0.5rem; } }
+
 .cs-margin-basic{
 	margin: 2rem;
 }

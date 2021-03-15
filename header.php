@@ -24,7 +24,7 @@
 <?php 
 	ob_start(); 
 	require_once( get_theme_root() . "/curbside-farms/custom/nav_menu.php" );
-	ob_end_flush();	
+	echo ob_get_clean();	
 ?>
 	
 
