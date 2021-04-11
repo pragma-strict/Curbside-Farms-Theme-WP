@@ -1,5 +1,7 @@
 <!-- This get header thing just imports the php from the 'header.php' file right here. -->
-<?php get_header();?>
+<?php get_header(); 
+   echo('single.php');
+?>
 
 <div class="content-block">
    <!-- Display the posts -->

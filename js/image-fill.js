@@ -1,4 +1,3 @@
-
 /* 
    This code updates the CSS position and size properties of background images to ensure
    that they always fill the div along its longest axis. This will always result in some

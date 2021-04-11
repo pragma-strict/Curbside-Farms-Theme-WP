@@ -1,9 +1,10 @@
 <footer>
-<?php 
-   ob_start(); 
-   require_once( get_theme_root() . "/curbside-farms/custom/footer_menu.php" );
-   echo ob_get_clean();	
-?>
+   <?php 
+      $menu_args = [
+         'menu' => 'Footer'
+      ];
+      wp_nav_menu( $menu_args );
+   ?>
 </footer>
 
 

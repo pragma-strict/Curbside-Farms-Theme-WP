@@ -100,12 +100,12 @@ a:hover {
   color: #000000;
 }
 
-footer {
+.menu-footer-container, .menu-main-container {
   width: 100%;
   text-align: center;
 }
 
-footer ul {
+.menu-footer-container ul, .menu-main-container ul {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -113,18 +113,18 @@ footer ul {
   list-style-type: none;
 }
 
-footer ul li {
+.menu-footer-container ul li, .menu-main-container ul li {
   padding: 1rem;
 }
 
-footer ul li a {
+.menu-footer-container ul li a, .menu-main-container ul li a {
   display: block;
   white-space: nowrap;
   color: black;
   padding: 8px 10px 8px 10px;
 }
 
-footer ul li a:hover {
+.menu-footer-container ul li a:hover, .menu-main-container ul li a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }

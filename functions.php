@@ -92,13 +92,13 @@ add_action( 'widgets_init', 'register_custom_sidebars' );
 	Block non-administrators from accessing the WordPress back-end.
 	Works by redirecting them to home page. Works good but does not hide admin bar.
 */
-function block_users_backend() {
-	if ( is_admin() && ! current_user_can( 'administrator' ) && ! wp_doing_ajax() ) {
-		wp_redirect( home_url() );
-		exit;
-	}
-}
-add_action( 'init', 'block_users_backend' );
+// function block_users_backend() {
+// 	if ( is_admin() && ! current_user_can( 'administrator' ) && ! wp_doing_ajax() ) {
+// 		wp_redirect( home_url() );
+// 		exit;
+// 	}
+// }
+// add_action( 'init', 'block_users_backend' );
 
 
 

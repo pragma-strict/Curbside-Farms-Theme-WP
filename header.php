@@ -22,9 +22,10 @@
 
 <!-- We may want to only call this per page. I think we should. -->
 <?php 
-	ob_start(); 
-	require_once( get_theme_root() . "/curbside-farms/custom/nav_menu.php" );
-	echo ob_get_clean();	
+	$menu_args = [
+		'menu' => 'Main'
+	];
+	wp_nav_menu( $menu_args );
 ?>
 	
 

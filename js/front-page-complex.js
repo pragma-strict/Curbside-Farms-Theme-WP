@@ -1,4 +1,3 @@
-
 /* NOTES:
 I'm in the middle of trying to make the transitions work. My idea is to put each image inside a div that is only responsible for getting repositioned during transitions. That way the 'left' property which is used to adjust the image positions according to their focal points is separate from the 'left' property used for transitions. Not sure what the matter is now. */
 
