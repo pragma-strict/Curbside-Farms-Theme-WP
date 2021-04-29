@@ -72,10 +72,6 @@ Version: 0.1
   color: #221818;
 }
 
-.bg {
-  background-color: rgba(255, 0, 0, 0.1);
-}
-
 .center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,14 +86,6 @@ Version: 0.1
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-a {
-  color: #000000;
-}
-
-a:hover {
-  color: #000000;
 }
 
 .menu-footer-container, .menu-main-container {
@@ -127,30 +115,6 @@ a:hover {
 .menu-footer-container ul li a:hover, .menu-main-container ul li a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   text-decoration: none;
-}
-
-.padding {
-  padding: 3rem;
-}
-
-@media screen and (max-width: 600px) {
-  .padding {
-    padding: 1rem;
-  }
-}
-
-.padding-light {
-  padding: 1.5rem;
-}
-
-@media screen and (max-width: 600px) {
-  .padding {
-    padding: 0.5rem;
-  }
-}
-
-.cs-margin-basic {
-  margin: 2rem;
 }
 
 /* Style the tab */

@@ -4,7 +4,7 @@ window.addEventListener("resize", positionFooter);
 document.addEventListener('DOMContentLoaded', positionFooter);
 
 function positionFooter(){
-   let footer = document.querySelector(".footer");
+   let footer = document.querySelector("footer");
    let footerHeight = window.getComputedStyle(footer).height.slice(0, 2);
    let isFooterAbsolute = window.getComputedStyle(footer).position == "absolute" ? true : false;
    if(footer){

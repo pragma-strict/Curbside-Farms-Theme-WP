@@ -75,22 +75,11 @@ $gradient-lower: rgba(7, 30, 61, 0.658);
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
 }
 
-.bg{
-	background-color: rgba(255, 0, 0, 0.1);
-}
-
 .center{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-a{
-	color: #000000;
-}
-a:hover{
-	color: #000000;
 }
 
 .menu-footer-container, .menu-main-container{
@@ -116,30 +105,15 @@ a:hover{
 	}
 }
 
-
-.padding{
-	padding: 3rem;
-}
-@media screen and (max-width: 600px) { .padding{ padding: 1rem; } }
-
-.padding-light{
-	padding: 1.5rem;
-}
-@media screen and (max-width: 600px) { .padding{ padding: 0.5rem; } }
-
-.cs-margin-basic{
-	margin: 2rem;
-}
-
 /* Style the tab */
 .tab {
 	overflow: hidden;
 	border: 1px solid #ccc;
 	background-color: #f1f1f1;
- }
- 
- /* Style the buttons that are used to open the tab content */
- .tab button {
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
 	background-color: inherit;
 	float: left;
 	border: none;
@@ -147,25 +121,25 @@ a:hover{
 	cursor: pointer;
 	padding: 14px 16px;
 	transition: 0.3s;
- }
- 
- /* Change background color of buttons on hover */
- .tab button:hover {
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
 	background-color: #ddd;
- }
- 
- /* Create an active/current tablink class */
- .tab button.active {
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
 	background-color: #ccc;
- }
- 
- /* Style the tab content */
- .tabcontent {
+}
+
+/* Style the tab content */
+.tabcontent {
 	display: none;
 	padding: 6px 12px;
 	border: 1px solid #ccc;
 	border-top: none;
- }
+}
 
 h1{
 	font-weight: bold;
