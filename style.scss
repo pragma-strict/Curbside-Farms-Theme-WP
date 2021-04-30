@@ -82,28 +82,7 @@ $gradient-lower: rgba(7, 30, 61, 0.658);
 	align-items: center;
 }
 
-.menu-footer-container, .menu-main-container{
-	width: 100%;
-	text-align: center;
-	ul{
-		li{
-			padding: 1rem;
-			a{
-				display: block;
-				white-space: nowrap;
-				color: black;
-				padding: 8px 10px 8px 10px;
-			}
-			a:hover{
-				background-color: rgba(0, 0, 0, 0.1);
-				text-decoration: none;
-			}
-		}
-		display: inline-flex;
-		padding: 0;
-		list-style-type: none;
-	}
-}
+
 
 /* Style the tab */
 .tab {
@@ -141,18 +120,22 @@ $gradient-lower: rgba(7, 30, 61, 0.658);
 	border-top: none;
 }
 
-h1{
-	font-weight: bold;
-	font-size: 1.5em;
-	color: #393939;
-}
-
 .divider{
 	height: 3px;
 	background-color: rgba(0, 0, 0, 0.5);
 	width: inherit;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.divider-special{
+	min-height: 5px;
+	background-color: yellowgreen;
+	width: 100%;
+}
+
+.spacer{
+	min-height: 3rem;
 }
 
 .new-button{

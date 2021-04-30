@@ -21,12 +21,16 @@
 <body>
 
 <!-- We may want to only call this per page. I think we should. -->
-<?php 
-	$menu_args = [
-		'menu' => 'Main'
-	];
-	wp_nav_menu( $menu_args );
-?>
+<div class="menu-main-container">
+	<?php 
+		$menu_args = [
+			'menu' => 'Main',
+			'container_class' => 'container'
+		];
+		wp_nav_menu( $menu_args );
+	?>
+</div>
+<div class="divider-special"></div>
 	
 
 

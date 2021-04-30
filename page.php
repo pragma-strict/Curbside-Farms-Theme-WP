@@ -1,12 +1,14 @@
-<?php get_header();
-   echo('page.php');
-?>
-
 <?php 
+
+get_header();
+   //echo('page.php');
+
    if(have_posts()): 
       while(have_posts()): 
-         the_post(); ?>
-   <p> <?php the_content(); ?> </p>
-<?php endwhile; else: endif; ?>
+         the_post();
+         the_content();   
+      endwhile; else: endif;
 
-<?php get_footer();?>
+get_footer();
+
+?>

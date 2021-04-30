@@ -15,6 +15,8 @@ function load_stylesheets()
 	wp_enqueue_style('s2');
 	wp_register_style('s3', get_template_directory_uri() . '/css/front-page-old.css', '', 1, 'all');
 	wp_enqueue_style('s3');
+	wp_register_style('s4', get_template_directory_uri() . '/css/about.css', '', 1, 'all');
+	wp_enqueue_style('s4');
 }
 add_action('wp_enqueue_scripts', 'load_stylesheets'); // Hook in load_stylesheets()
 

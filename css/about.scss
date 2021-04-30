@@ -1,0 +1,22 @@
+.about-page{
+   min-height: 80vh;
+   .container{
+      .about-section{
+         margin: 1rem 0rem;
+         padding: 1rem;
+         min-height: 8rem;
+         border-left: yellowgreen;
+         border-left-style: solid;
+         background-image: linear-gradient(right, #f1f1f1, #ffffff);
+         
+         .icon{
+            float: left;
+            padding-right: 1rem;
+            img{
+               height: 6rem;
+               width: 6rem;
+            }
+         }
+      }
+   }
+}
