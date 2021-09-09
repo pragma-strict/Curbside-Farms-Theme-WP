@@ -20,17 +20,18 @@
 <!--Begin the body tag and use php to insert a bunch of classes that the body tag will use. -->
 <body>
 
-<!-- We may want to only call this per page. I think we should. -->
-<div class="menu-main-container">
-	<?php 
-		$menu_args = [
-			'menu' => 'Main',
-			'container_class' => 'container'
-		];
-		wp_nav_menu( $menu_args );
-	?>
-</div>
-<div class="divider-special"></div>
+<?php //if(!is_front_page( )): ?>
+	<div class="menu-main-container">
+		<?php 
+			$menu_args = [
+				'menu' => 'Main',
+				'container_class' => 'container'
+			];
+			wp_nav_menu( $menu_args );
+		?>
+	</div>
+	<div class="divider-special"></div>
+<?php //endif; ?>
 	
 
 

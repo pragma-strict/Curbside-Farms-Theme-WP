@@ -7,6 +7,7 @@
          <h3>We make custom garden beds from repurposed pallets and deliver them to your home.</h3>
          <br>
          <a href="<?php echo ( get_home_url() .  "/order-bed" ); ?>" class="btn btn-primary">Place An Order</a>
+         <a href="<?php echo ( get_home_url() .  "/vision" ); ?>" class="btn btn-secondary">Learn More</a>
       </div>
 </div>
 

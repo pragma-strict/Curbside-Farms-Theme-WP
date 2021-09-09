@@ -8,7 +8,7 @@
 const classes = [
    {
       className: "grid-container-centerpiece",
-      imageAspectRatio: 1.9   // Width divided by height
+      imageAspectRatio: 1.98   // Width divided by height
    }
 ];
 

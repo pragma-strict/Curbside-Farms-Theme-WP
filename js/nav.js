@@ -3,6 +3,8 @@
 window.addEventListener("resize", positionFooter);
 document.addEventListener('DOMContentLoaded', positionFooter);
 
+
+// Finds the footer and makes sure it's always stuck to the bottom
 function positionFooter(){
    let footer = document.querySelector("footer");
    let footerHeight = window.getComputedStyle(footer).height.slice(0, 2);
