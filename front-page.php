@@ -92,6 +92,8 @@
             <h4>Eric Buhne</h4>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsum. Inventore, doloribus! Magni, praesentium distinctio. Quisquam delectus quaerat maxime sapiente exercitationem, vel alias nobis? Eius veritatis ut dignissimos at iste!</p>
       </div>  
+
+      <a href="">See more</a>
             
     </div>
 </div>
