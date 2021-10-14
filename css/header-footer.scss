@@ -1,6 +1,6 @@
 .menu-main-container{
    width: 100%;
-   background-color: whitesmoke;
+   //background-color: rgb(255, 255, 255);
    .menu{
       margin: 0;
 		padding: 0;
@@ -20,7 +20,7 @@
 			}
       }
       .menu-item:first-child{
-         font-weight: bold;
+			font-weight: bold;
       }
       .current-menu-item{
          a{
